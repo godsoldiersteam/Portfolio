@@ -81,10 +81,11 @@
     <span id="toast-message">Link copied to clipboard!</span>
   </div>
 
-  <!-- Main Mobile-Centered Layout Container -->
-  <main class="w-full max-w-[580px] px-4 pt-12 pb-10 flex flex-col items-center flex-grow text-center">
-    
-    <!-- Profile Emblem / Logo Header -->
+  <!-- Main Centered Profile Column -->
+  <main class="profile-surface w-full max-w-[580px] min-h-screen flex flex-col items-center px-4 sm:px-8 pt-14 pb-10 shadow-2xl">
+    <!-- Inner Content Wrapper -->
+    <div class="relative z-10 w-full flex flex-col items-center flex-1">
+
       <!-- Profile Avatar Emblem (Custom Inline SVG Recreating the GOD SOLDIERS TEAM GLOBAL Badge) -->
       <div class="w-24 h-24 rounded-full overflow-hidden shadow-lg ring-1 ring-white/15 mb-4 shrink-0 bg-[#c9c6b9]">
         <img
@@ -100,36 +101,130 @@
             </linearGradient>
           </defs>
 
-        <!-- SVG Emblem Replica of GOD SOLDIERS TEAM GLOBAL -->
-        <svg viewBox="0 0 200 200" class="w-full h-full text-slate-100 fill-current">
-          <circle cx="100" cy="100" r="96" fill="#151b24" stroke="#a0aec0" stroke-width="4"/>
-          <!-- Outer Wreath / Gear motif -->
-          <circle cx="100" cy="100" r="86" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4 3"/>
-          <circle cx="100" cy="100" r="76" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
-          
-          <!-- Shield & Globe Graphic Background -->
-          <path d="M 60 70 Q 100 45 140 70 Q 140 120 100 155 Q 60 120 60 70 Z" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
-          
-          <!-- Globe Grid lines inside shield -->
-          <ellipse cx="100" cy="95" rx="30" ry="30" fill="none" stroke="#475569" stroke-width="1.5"/>
-          <line x1="70" y1="95" x2="130" y2="95" stroke="#475569" stroke-width="1.5"/>
-          <line x1="100" y1="65" x2="100" y2="125" stroke="#475569" stroke-width="1.5"/>
-          
-          <!-- Central Cross -->
-          <rect x="95" y="70" width="10" height="45" fill="#f8fafc" rx="1"/>
-          <rect x="80" y="80" width="40" height="10" fill="#f8fafc" rx="1"/>
-          
-          <!-- Banner Ribbon with Text -->
-          <path d="M 35 145 Q 100 160 165 145 L 160 162 Q 100 177 40 162 Z" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.5"/>
-          <text x="100" y="156" font-family="'Cinzel', serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">TEAM GLOBAL</text>
-          
-          <!-- Top Arc Text -->
-          <path id="textArc" d="M 45 100 A 55 55 0 0 1 155 100" fill="none"/>
-          <text font-family="'Cinzel', serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">
-            <textPath href="#textArc" startOffset="50%">GOD SOLDIERS</textPath>
-          </text>
+          <!-- Circular Sky/Steel Backdrop -->
+          <circle cx="100" cy="100" r="100" fill="url(#badgeBg)" />
+
+          <!-- Subtle Inner Ring -->
+          <circle cx="100" cy="100" r="92" fill="none" stroke="#1e2f3d" stroke-opacity="0.18" stroke-width="2" />
+
+          <!-- Laurel Wreaths (Left & Right) -->
+          <g fill="none" stroke="#1d2f3c" stroke-width="4" stroke-linecap="round">
+            <path d="M58 98 C45 84, 46 58, 62 42" />
+            <path d="M142 98 C155 84, 154 58, 138 42" />
+          </g>
+          <!-- Laurel Leaves -->
+          <g fill="#1d2f3c">
+            <!-- Left Leaves -->
+            <ellipse cx="48" cy="78" rx="7" ry="3.2" transform="rotate(-35 48 78)" />
+            <ellipse cx="46" cy="64" rx="7" ry="3.2" transform="rotate(-15 46 64)" />
+            <ellipse cx="51" cy="51" rx="7" ry="3.2" transform="rotate(15 51 51)" />
+            <ellipse cx="60" cy="40" rx="6.5" ry="3" transform="rotate(35 60 40)" />
+            <!-- Right Leaves -->
+            <ellipse cx="152" cy="78" rx="7" ry="3.2" transform="rotate(35 152 78)" />
+            <ellipse cx="154" cy="64" rx="7" ry="3.2" transform="rotate(15 154 64)" />
+            <ellipse cx="149" cy="51" rx="7" ry="3.2" transform="rotate(-15 149 51)" />
+            <ellipse cx="140" cy="40" rx="6.5" ry="3" transform="rotate(-35 140 40)" />
+          </g>
+
+          <!-- Center Globe Crest -->
+          <circle cx="100" cy="70" r="34" fill="#182a38" />
+          <circle cx="100" cy="70" r="28" fill="url(#globeGrad)" stroke="#e5dcc8" stroke-width="2" />
+
+          <!-- Globe Latitude / Longitude Lines -->
+          <g stroke="#d8ecf8" stroke-opacity="0.6" stroke-width="1.3" fill="none">
+            <ellipse cx="100" cy="70" rx="14" ry="28" />
+            <line x1="72" y1="70" x2="128" y2="70" />
+            <path d="M77 56 Q100 62 123 56" />
+            <path d="M77 84 Q100 78 123 84" />
+          </g>
+
+          <!-- Radiant Cross over the Globe -->
+          <g fill="#ffffff" stroke="#182a38" stroke-width="1.2">
+            <rect x="96" y="45" width="8" height="48" rx="1.5" />
+            <rect x="82" y="58" width="36" height="8" rx="1.5" />
+          </g>
+
+          <!-- Bold Emblem Title Banner -->
+          <text
+            x="100"
+            y="134"
+            text-anchor="middle"
+            font-family="Inter, Arial Black, sans-serif"
+            font-weight="900"
+            font-size="22"
+            letter-spacing="-0.5"
+            fill="#14232e"
+            stroke="#f4efe3"
+            stroke-width="3.5"
+            paint-order="stroke"
+          >GOD SOLDIERS</text>
+
+          <!-- Sub-ribbon "TEAM GLOBAL" -->
+          <rect x="44" y="144" width="112" height="19" rx="9.5" fill="#14232e" fill-opacity="0.86" />
+          <text
+            x="100"
+            y="157.5"
+            text-anchor="middle"
+            font-family="Inter, sans-serif"
+            font-weight="700"
+            font-size="11.5"
+            letter-spacing="1.2"
+            fill="#f4efe3"
+          >TEAM GLOBAL</text>
         </svg>
       </div>
+
+      <!-- Profile Heading & Bio -->
+      <header class="text-center mb-8 px-2">
+        <h1 class="font-serif font-bold text-[19px] sm:text-[21px] tracking-[0.02em] text-white leading-snug">
+          GOD SOLDIERS TEAM GLOBAL
+        </h1>
+        <p class="font-serif font-medium text-[13.5px] sm:text-[14.5px] text-neutral-100/95 leading-[1.45] mt-1.5 max-w-[360px] mx-auto">
+          This generation of Christians is responsible<br />
+          4 this generation of souls on earth
+        </p>
+      </header>
+
+      <!-- Links Container (Populated Dynamically from JS Config) -->
+      <section id="links-container" class="w-full space-y-3.5" aria-label="Primary Links">
+        <!-- Link cards injected by JavaScript -->
+      </section>
+
+      <!-- Social Icons Row -->
+      <nav id="socials-container" class="flex items-center justify-center gap-5 mt-8 mb-12" aria-label="Social Media Links">
+        <!-- Social icons injected by JavaScript -->
+      </nav>
+
+      <!-- Spacer to push footer cleanly toward bottom -->
+      <div class="flex-1"></div>
+
+      <!-- "Get your own Linktree" Pill CTA -->
+      <div class="mt-4 mb-6">
+        <button
+          id="cta-button"
+          type="button"
+          class="font-sans font-semibold text-[14px] text-black bg-white hover:bg-neutral-100 active:scale-95 transition-all rounded-full px-6 py-3 shadow-md"
+        >
+          Get your own Linktree
+        </button>
+      </div>
+
+      <!-- Footer Legal / Utility Links -->
+      <footer class="w-full text-center font-sans text-[11px] sm:text-[11.5px] text-neutral-300/90 leading-relaxed px-2">
+        <div class="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1">
+          <button type="button" data-footer="Cookie Preferences" class="hover:underline hover:text-white transition-colors">Cookie Preferences</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" data-footer="Report" class="hover:underline hover:text-white transition-colors">Report</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" data-footer="Privacy" class="hover:underline hover:text-white transition-colors">Privacy</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" data-footer="Explore" class="hover:underline hover:text-white transition-colors">Explore</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" data-footer="About this account" class="hover:underline hover:text-white transition-colors">About this account</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" data-footer="More from Linktree" class="hover:underline hover:text-white transition-colors">More from Linktree</button>
+        </div>
+      </footer>
     </div>
 
     <!-- Title & Subtitle -->
