@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOD SOLDIERS TEAM GLOBAL </title>
-  
+  <title>GOD SOLDIERS TEAM GLOBAL</title>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- FontAwesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Google Fonts: Playfair Display / Merriweather for editorial serif title and Inter for UI -->
+
+  <!-- Google Fonts: Playfair Display, Cinzel, and Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
           }
         }
       }
-    }
+    };
   </script>
 
   <style>
@@ -42,6 +42,7 @@
       background: #ffffff;
       color: #000000;
     }
+
     body {
       background-color: #121212;
       color: #ffffff;
@@ -49,22 +50,186 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Ambient background gradient effect resembling canvas */
+    /* Ambient background gradient effect */
     .bg-gradient-canvas {
-      background: radial-gradient(circle at 50% 20%, #22252a 0%, #121212 70%);
+      background: radial-gradient(circle at 50% 0%, #1c2229 0%, #0d0f12 55%, #07080a 100%);
     }
 
-    /* Subtle pulse animation for interactive elements */
+    /* Animated Ambient Orbs for Glassmorphism Depth */
+    .ambient-orb {
+      position: fixed;
+      border-radius: 9999px;
+      filter: blur(90px);
+      opacity: 0.32;
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 360px;
+      height: 360px;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-60%);
+      background: radial-gradient(circle, rgba(142, 197, 232, 0.55) 0%, rgba(34, 76, 107, 0) 70%);
+      animation: driftOrbOne 14s ease-in-out infinite alternate;
+    }
+
+    .orb-2 {
+      width: 420px;
+      height: 420px;
+      top: 38%;
+      right: -120px;
+      background: radial-gradient(circle, rgba(229, 220, 200, 0.28) 0%, rgba(20, 35, 46, 0) 70%);
+      animation: driftOrbTwo 18s ease-in-out infinite alternate;
+    }
+
+    .orb-3 {
+      width: 380px;
+      height: 380px;
+      bottom: -100px;
+      left: -100px;
+      background: radial-gradient(circle, rgba(93, 139, 168, 0.42) 0%, rgba(18, 18, 18, 0) 70%);
+      animation: driftOrbThree 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes driftOrbOne {
+      0% { transform: translate(-60%, 0px) scale(1); }
+      100% { transform: translate(-35%, 65px) scale(1.15); }
+    }
+
+    @keyframes driftOrbTwo {
+      0% { transform: translate(0px, 0px) scale(1); }
+      100% { transform: translate(-70px, -55px) scale(1.12); }
+    }
+
+    @keyframes driftOrbThree {
+      0% { transform: translate(0px, 0px) scale(1); }
+      100% { transform: translate(85px, -45px) scale(1.18); }
+    }
+
+    /* Frosted Glass Main Panel */
+    .glass-panel {
+      background: linear-gradient(
+        180deg,
+        rgba(28, 32, 37, 0.58) 0%,
+        rgba(18, 20, 23, 0.68) 45%,
+        rgba(14, 16, 19, 0.78) 100%
+      );
+      backdrop-filter: blur(26px) saturate(135%);
+      -webkit-backdrop-filter: blur(26px) saturate(135%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    /* Subtle Noise Texture Overlay on Glass */
+    .glass-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.9) 0.75px, transparent 0.75px);
+      background-size: 6px 6px;
+    }
+
+    /* Frosted Glass Link Cards with Sheen Motion */
     .link-card {
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      background: rgba(5, 6, 8, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.28s ease,
+                  border-color 0.28s ease,
+                  box-shadow 0.28s ease;
     }
+
+    .link-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        transparent 100%
+      );
+      transform: skewX(-20deg);
+      transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
     .link-card:hover {
-      transform: scale(1.015);
-      background-color: #1a1a1a;
-      border-color: #3f3f46;
+      transform: translateY(-2px) scale(1.018);
+      background: rgba(20, 23, 28, 0.78);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.52),
+        0 0 22px rgba(142, 197, 232, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
     }
+
+    .link-card:hover::after {
+      left: 140%;
+    }
+
     .link-card:active {
-      transform: scale(0.99);
+      transform: scale(0.985);
+    }
+
+    /* Entrance & Avatar Breathing Animations */
+    @keyframes fadeUpIn {
+      0% {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes avatarFloat {
+      0%, 100% {
+        transform: translateY(0px);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 20px rgba(142, 197, 232, 0.16);
+      }
+      50% {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55), 0 0 28px rgba(142, 197, 232, 0.3);
+      }
+    }
+
+    .reveal-item {
+      opacity: 0;
+      animation: fadeUpIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .avatar-motion {
+      animation:
+        fadeUpIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+        avatarFloat 5s ease-in-out 0.7s infinite;
+    }
+
+    /* Respect reduced-motion user preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-orb, .reveal-item, .avatar-motion {
+        animation: none !important;
+        opacity: 1 !important;
+      }
     }
 
     /* Custom Toast Styling */
@@ -75,6 +240,11 @@
 </head>
 <body class="min-h-screen bg-gradient-canvas flex flex-col justify-between items-center relative overflow-x-hidden selection:bg-white selection:text-black">
 
+  <!-- Blurred Moving Background Orbs -->
+  <div class="ambient-orb orb-1" aria-hidden="true"></div>
+  <div class="ambient-orb orb-2" aria-hidden="true"></div>
+  <div class="ambient-orb orb-3" aria-hidden="true"></div>
+
   <!-- Toast Notification -->
   <div id="toast" class="fixed top-6 z-50 transform -translate-y-20 opacity-0 bg-white text-black font-semibold px-5 py-3 rounded-full shadow-2xl flex items-center space-x-2 text-sm transition-all duration-300 pointer-events-none">
     <i class="fa-solid fa-circle-check text-green-600 text-base"></i>
@@ -82,19 +252,26 @@
   </div>
 
   <!-- Main Centered Profile Column -->
-  <main class="profile-surface w-full max-w-[580px] min-h-screen flex flex-col items-center px-4 sm:px-8 pt-14 pb-10 shadow-2xl">
+  <main class="glass-panel relative z-10 w-full max-w-[580px] min-h-screen sm:min-h-[calc(100vh-3rem)] sm:my-6 sm:rounded-3xl flex flex-col items-center px-4 sm:px-8 pt-14 pb-10">
     <!-- Inner Content Wrapper -->
-    <div class="relative z-10 w-full flex flex-col items-center flex-1">
+    <div class="relative z-10 w-full flex flex-col items-center flex-1 text-center">
 
-      <!-- Profile Avatar Emblem (Custom Inline SVG Recreating the GOD SOLDIERS TEAM GLOBAL Badge) -->
-      <div class="w-24 h-24 rounded-full overflow-hidden shadow-lg ring-1 ring-white/15 mb-4 shrink-0 bg-[#c9c6b9]">
+      <!-- Profile Avatar Emblem (Loads logo.jpeg, automatically falls back to SVG if missing) -->
+      <div class="avatar-motion w-24 h-24 rounded-full overflow-hidden ring-2 ring-white/20 mb-4 shrink-0 bg-[#c9c6b9]">
         <img
           id="profile-logo-img"
           src="logo.jpeg"
           alt="GOD SOLDIERS TEAM GLOBAL Logo"
-          class="hidden w-full h-full object-cover"
+          class="w-full h-full object-cover"
+          onerror="this.classList.add('hidden'); document.getElementById('profile-logo-svg').classList.remove('hidden');"
         />
-        <svg id="profile-logo-svg" viewBox="0 0 200 200" class="w-full h-full" role="img" aria-label="GOD SOLDIERS TEAM GLOBAL Logo">
+        <svg id="profile-logo-svg" viewBox="0 0 200 200" class="hidden w-full h-full" role="img" aria-label="GOD SOLDIERS TEAM GLOBAL Logo">
+          <defs>
+            <linearGradient id="badgeBg" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#e5dcc8" />
+              <stop offset="58%" stop-color="#c6d0d6" />
+              <stop offset="100%" stop-color="#5d8ba8" />
+            </linearGradient>
             <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#8ec5e8" />
               <stop offset="100%" stop-color="#224c6b" />
@@ -103,23 +280,18 @@
 
           <!-- Circular Sky/Steel Backdrop -->
           <circle cx="100" cy="100" r="100" fill="url(#badgeBg)" />
-
-          <!-- Subtle Inner Ring -->
           <circle cx="100" cy="100" r="92" fill="none" stroke="#1e2f3d" stroke-opacity="0.18" stroke-width="2" />
 
-          <!-- Laurel Wreaths (Left & Right) -->
+          <!-- Laurel Wreaths -->
           <g fill="none" stroke="#1d2f3c" stroke-width="4" stroke-linecap="round">
             <path d="M58 98 C45 84, 46 58, 62 42" />
             <path d="M142 98 C155 84, 154 58, 138 42" />
           </g>
-          <!-- Laurel Leaves -->
           <g fill="#1d2f3c">
-            <!-- Left Leaves -->
             <ellipse cx="48" cy="78" rx="7" ry="3.2" transform="rotate(-35 48 78)" />
             <ellipse cx="46" cy="64" rx="7" ry="3.2" transform="rotate(-15 46 64)" />
             <ellipse cx="51" cy="51" rx="7" ry="3.2" transform="rotate(15 51 51)" />
             <ellipse cx="60" cy="40" rx="6.5" ry="3" transform="rotate(35 60 40)" />
-            <!-- Right Leaves -->
             <ellipse cx="152" cy="78" rx="7" ry="3.2" transform="rotate(35 152 78)" />
             <ellipse cx="154" cy="64" rx="7" ry="3.2" transform="rotate(15 154 64)" />
             <ellipse cx="149" cy="51" rx="7" ry="3.2" transform="rotate(-15 149 51)" />
@@ -129,8 +301,6 @@
           <!-- Center Globe Crest -->
           <circle cx="100" cy="70" r="34" fill="#182a38" />
           <circle cx="100" cy="70" r="28" fill="url(#globeGrad)" stroke="#e5dcc8" stroke-width="2" />
-
-          <!-- Globe Latitude / Longitude Lines -->
           <g stroke="#d8ecf8" stroke-opacity="0.6" stroke-width="1.3" fill="none">
             <ellipse cx="100" cy="70" rx="14" ry="28" />
             <line x1="72" y1="70" x2="128" y2="70" />
@@ -138,184 +308,161 @@
             <path d="M77 84 Q100 78 123 84" />
           </g>
 
-          <!-- Radiant Cross over the Globe -->
+          <!-- Radiant Cross -->
           <g fill="#ffffff" stroke="#182a38" stroke-width="1.2">
             <rect x="96" y="45" width="8" height="48" rx="1.5" />
             <rect x="82" y="58" width="36" height="8" rx="1.5" />
           </g>
 
-          <!-- Bold Emblem Title Banner -->
-          <text
-            x="100"
-            y="134"
-            text-anchor="middle"
-            font-family="Inter, Arial Black, sans-serif"
-            font-weight="900"
-            font-size="22"
-            letter-spacing="-0.5"
-            fill="#14232e"
-            stroke="#f4efe3"
-            stroke-width="3.5"
-            paint-order="stroke"
-          >GOD SOLDIERS</text>
-
-          <!-- Sub-ribbon "TEAM GLOBAL" -->
+          <!-- Emblem Text -->
+          <text x="100" y="134" text-anchor="middle" font-family="Inter, Arial Black, sans-serif" font-weight="900" font-size="22" letter-spacing="-0.5" fill="#14232e" stroke="#f4efe3" stroke-width="3.5" paint-order="stroke">GOD SOLDIERS</text>
           <rect x="44" y="144" width="112" height="19" rx="9.5" fill="#14232e" fill-opacity="0.86" />
-          <text
-            x="100"
-            y="157.5"
-            text-anchor="middle"
-            font-family="Inter, sans-serif"
-            font-weight="700"
-            font-size="11.5"
-            letter-spacing="1.2"
-            fill="#f4efe3"
-          >TEAM GLOBAL</text>
+          <text x="100" y="157.5" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11.5" letter-spacing="1.2" fill="#f4efe3">TEAM GLOBAL</text>
         </svg>
       </div>
 
-    <!-- Title & Subtitle -->
-    <h1 class="font-serifTitle text-xl sm:text-2xl font-bold tracking-wide text-white mb-2 leading-tight">
-      GOD SOLDIERS TEAM GLOBAL
-    </h1>
-    
-    <p class="font-serifTitle italic text-sm sm:text-base text-gray-200 max-w-sm mb-8 leading-snug px-2">
-      This generation of Christians is responsible 4 this generation of souls on earth
-    </p>
+      <!-- Title & Subtitle -->
+      <h1 class="reveal-item font-serifTitle text-xl sm:text-2xl font-bold tracking-wide text-white mb-2 leading-tight" style="animation-delay: 80ms;">
+        GOD SOLDIERS TEAM GLOBAL
+      </h1>
 
-    <!-- Links List -->
-    <div class="w-full space-y-4 mb-10">
-      
-      <!-- Link 1: WhatsApp -->
-      <div class="link-card relative flex items-center justify-between w-full bg-black border border-zinc-800/80 hover:border-zinc-700 rounded-lg p-4 shadow-lg cursor-pointer group" onclick="handleLinkClick('WhatsApp', 'https://www.whatsapp.com/channel/0029Vb8V1wF3AzNWsub0i92C')">
-        <div class="flex items-center justify-center w-8 h-8 text-white text-2xl">
-          <i class="fa-brands fa-whatsapp"></i>
+      <p id="profile-bio" class="reveal-item font-sans font-normal text-sm sm:text-base text-gray-200 max-w-sm mb-8 leading-snug px-2" style="animation-delay: 140ms;">
+        This generation of Christians is responsible 4 this generation of souls on earth
+      </p>
+
+      <!-- Links List -->
+      <div class="w-full space-y-4 mb-10">
+
+        <!-- Link 1: WhatsApp -->
+        <div class="reveal-item link-card flex items-center justify-between w-full rounded-xl p-4 cursor-pointer group" style="animation-delay: 200ms;" onclick="handleLinkClick('WhatsApp', 'https://www.whatsapp.com/channel/0029Vb8V1wF3AzNWsub0i92C')">
+          <div class="flex items-center justify-center w-8 h-8 text-white text-2xl transition-transform duration-300 group-hover:scale-110">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
+            WHATSAPP
+          </span>
+          <button type="button" onclick="event.stopPropagation(); openShareModal('WHATSAPP', 'https://www.whatsapp.com/channel/0029Vb8V1wF3AzNWsub0i92C')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10">
+            <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
+          </button>
         </div>
-        <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
-          WHATSAPP
-        </span>
-        <button onclick="event.stopPropagation(); openShareModal('whatsapp.com', 'https://www.whatsapp.com/channel/0029Vb8V1wF3AzNWsub0i92C')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-zinc-800/60">
-          <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
-        </button>
+
+        <!-- Link 2: BLOG -->
+        <div class="reveal-item link-card flex items-center justify-between w-full rounded-xl p-4 cursor-pointer group" style="animation-delay: 260ms;" onclick="handleLinkClick('BLOG', 'https://god-soldiers-team-global.blogspot.com/')">
+          <div class="flex items-center justify-center w-8 h-8 text-white text-xl transition-transform duration-300 group-hover:scale-110">
+            <i class="fa-brands fa-blogger-b"></i>
+          </div>
+          <span class="font-serifTitle font-bold text-white text-base tracking-wider flex-grow text-center px-4 uppercase">
+            BLOG
+          </span>
+          <button type="button" onclick="event.stopPropagation(); openShareModal('BLOG', 'https://god-soldiers-team-global.blogspot.com/')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10">
+            <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Link 3: Facebook -->
+        <div class="reveal-item link-card flex items-center justify-between w-full rounded-xl p-4 cursor-pointer group" style="animation-delay: 320ms;" onclick="handleLinkClick('Facebook', 'https://www.facebook.com/profile.php?id=61562255637495&rdid=jKAPKTtEGyeLDfoW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D7bAhkGjG#')">
+          <div class="flex items-center justify-center w-8 h-8 text-white text-xl transition-transform duration-300 group-hover:scale-110">
+            <i class="fa-brands fa-facebook-f"></i>
+          </div>
+          <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
+            FACEBOOK
+          </span>
+          <button type="button" onclick="event.stopPropagation(); openShareModal('FACEBOOK', 'https://www.facebook.com/profile.php?id=61562255637495&rdid=jKAPKTtEGyeLDfoW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D7bAhkGjG#')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10">
+            <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Link 4: JESUS DISCIPLE SCHOOL -->
+        <div class="reveal-item link-card flex items-center justify-between w-full rounded-xl p-4 cursor-pointer group" style="animation-delay: 380ms;" onclick="handleLinkClick('JESUS DISCIPLE SCHOOL', 'https://docs.google.com/forms/d/18pQ9RPKtV2P4E3j2GKLa4Qxs30mxq6CR67u-Xs_cVDo/viewform?pli=1&pli=1&edit_requested=true')">
+          <div class="flex items-center justify-center w-8 h-8 text-white transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 stroke-current fill-none stroke-[2.2]" viewBox="0 0 24 24">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <span class="font-serifTitle font-bold text-white text-sm sm:text-base tracking-wider flex-grow text-center px-4 uppercase">
+            JESUS DISCIPLE SCHOOL
+          </span>
+          <button type="button" onclick="event.stopPropagation(); openShareModal('JESUS DISCIPLE SCHOOL', 'https://docs.google.com/forms/d/18pQ9RPKtV2P4E3j2GKLa4Qxs30mxq6CR67u-Xs_cVDo/viewform?pli=1&pli=1&edit_requested=true')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10">
+            <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Link 5: Instagram -->
+        <div class="reveal-item link-card flex items-center justify-between w-full rounded-xl p-4 cursor-pointer group" style="animation-delay: 440ms;" onclick="handleLinkClick('Instagram', 'https://www.instagram.com/god_soldiers_team/')">
+          <div class="flex items-center justify-center w-8 h-8 text-white text-xl transition-transform duration-300 group-hover:scale-110">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
+            Instagram
+          </span>
+          <button type="button" onclick="event.stopPropagation(); openShareModal('Instagram', 'https://www.instagram.com/god_soldiers_team/')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10">
+            <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Link 6: TALK TO SPIRITUAL COACH -->
+        <div class="reveal-item link-card flex items-center justify-between w-full rounded-xl p-4 cursor-pointer group" style="animation-delay: 500ms;" onclick="handleLinkClick('TALK TO SPIRITUAL COACH', 'https://t.me/Discipleship_School')">
+          <div class="flex items-center justify-center w-8 h-8 text-white text-xl transition-transform duration-300 group-hover:scale-110">
+            <i class="fa-regular fa-paper-plane"></i>
+          </div>
+          <span class="font-serifTitle font-bold text-white text-sm sm:text-base tracking-wider flex-grow text-center px-4 uppercase">
+            TALK TO SPIRITUAL COACH
+          </span>
+          <button type="button" onclick="event.stopPropagation(); openShareModal('TALK TO SPIRITUAL COACH', 'https://t.me/Discipleship_School')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10">
+            <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Link 7: YouTube -->
+        <div class="reveal-item link-card flex items-center justify-between w-full rounded-xl p-4 cursor-pointer group" style="animation-delay: 560ms;" onclick="handleLinkClick('YouTube', 'https://www.youtube.com/@godsoldiersteamglobal')">
+          <div class="flex items-center justify-center w-8 h-8 text-white text-xl transition-transform duration-300 group-hover:scale-110">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
+            YouTube
+          </span>
+          <button type="button" onclick="event.stopPropagation(); openShareModal('YouTube', 'https://www.youtube.com/@godsoldiersteamglobal')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10">
+            <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
+          </button>
+        </div>
+
       </div>
 
-      <!-- Link 2: BLOG -->
-      <div class="link-card relative flex items-center justify-between w-full bg-black border border-zinc-800/80 hover:border-zinc-700 rounded-lg p-4 shadow-lg cursor-pointer group" onclick="handleLinkClick('BLOG', 'https://god-soldiers-team-global.blogspot.com/')">
-        <div class="flex items-center justify-center w-8 h-8 text-white text-xl">
-          <i class="fa-brands fa-blogger-b"></i>
-        </div>
-        <span class="font-serifTitle font-bold text-white text-base tracking-wider flex-grow text-center px-4 uppercase">
-          BLOG
-        </span>
-        <button onclick="event.stopPropagation(); openShareModal('BLOG', 'https://god-soldiers-team-global.blogspot.com/')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-zinc-800/60">
-          <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
-        </button>
-      </div>
-
-      <!-- Link 3: Facebook -->
-      <div class="link-card relative flex items-center justify-between w-full bg-black border border-zinc-800/80 hover:border-zinc-700 rounded-lg p-4 shadow-lg cursor-pointer group" onclick="handleLinkClick('Facebook', 'https://www.facebook.com/profile.php?id=61562255637495&rdid=jKAPKTtEGyeLDfoW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D7bAhkGjG#')">
-        <div class="flex items-center justify-center w-8 h-8 text-white text-xl">
-          <i class="fa-brands fa-facebook-f"></i>
-        </div>
-        <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
-          FACEBOOK
-        </span>
-        <button onclick="event.stopPropagation(); openShareModal('Facebook', 'https://www.facebook.com/profile.php?id=61562255637495&rdid=jKAPKTtEGyeLDfoW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D7bAhkGjG#')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-zinc-800/60">
-          <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
-        </button>
-      </div>
-
-      <!-- Link 4: JESUS DISCIPLE SCHOOL -->
-      <div class="link-card relative flex items-center justify-between w-full bg-black border border-zinc-800/80 hover:border-zinc-700 rounded-lg p-4 shadow-lg cursor-pointer group" onclick="handleLinkClick('JESUS DISCIPLE SCHOOL', 'https://docs.google.com/forms/d/18pQ9RPKtV2P4E3j2GKLa4Qxs30mxq6CR67u-Xs_cVDo/viewform?pli=1&pli=1&edit_requested=true')">
-        <div class="flex items-center justify-center w-8 h-8 text-white">
-          <!-- Geometric D / School Badge Icon -->
-          <svg class="w-6 h-6 stroke-current fill-none stroke-[2.2]" viewBox="0 0 24 24">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-        </div>
-        <span class="font-serifTitle font-bold text-white text-sm sm:text-base tracking-wider flex-grow text-center px-4 uppercase">
-          JESUS DISCIPLE SCHOOL
-        </span>
-        <button onclick="event.stopPropagation(); openShareModal('JESUS DISCIPLE SCHOOL', 'https://docs.google.com/forms/d/18pQ9RPKtV2P4E3j2GKLa4Qxs30mxq6CR67u-Xs_cVDo/viewform?pli=1&pli=1&edit_requested=true')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-zinc-800/60">
-          <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
-        </button>
-      </div>
-
-      <!-- Link 5: Instagram -->
-      <div class="link-card relative flex items-center justify-between w-full bg-black border border-zinc-800/80 hover:border-zinc-700 rounded-lg p-4 shadow-lg cursor-pointer group" onclick="handleLinkClick('Instagram', 'https://www.instagram.com/god_soldiers_team/')">
-        <div class="flex items-center justify-center w-8 h-8 text-white text-xl">
+      <!-- Social Icons Footer Row -->
+      <div class="reveal-item flex items-center justify-center space-x-6 mb-12" style="animation-delay: 640ms;">
+        <a href="https://www.instagram.com/god_soldiers_team/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="Instagram">
           <i class="fa-brands fa-instagram"></i>
-        </div>
-        <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
-          Instagram
-        </span>
-        <button onclick="event.stopPropagation(); openShareModal('Instagram', 'https://www.instagram.com/god_soldiers_team/')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-zinc-800/60">
-          <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
-        </button>
-      </div>
-
-      <!-- Link 6: TALK TO SPIRITUAL COACH -->
-      <div class="link-card relative flex items-center justify-between w-full bg-black border border-zinc-800/80 hover:border-zinc-700 rounded-lg p-4 shadow-lg cursor-pointer group" onclick="handleLinkClick('TALK TO SPIRITUAL COACH', 'https://t.me/Discipleship_School')">
-        <div class="flex items-center justify-center w-8 h-8 text-white text-xl">
-          <i class="fa-regular fa-paper-plane"></i>
-        </div>
-        <span class="font-serifTitle font-bold text-white text-sm sm:text-base tracking-wider flex-grow text-center px-4 uppercase">
-          TALK TO SPIRITUAL COACH
-        </span>
-        <button onclick="event.stopPropagation(); openShareModal('TALK TO SPIRITUAL COACH', 'https://t.me/Discipleship_School')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-zinc-800/60">
-          <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
-        </button>
-      </div>
-
-      <!-- Link 7: YouTube -->
-      <div class="link-card relative flex items-center justify-between w-full bg-black border border-zinc-800/80 hover:border-zinc-700 rounded-lg p-4 shadow-lg cursor-pointer group" onclick="handleLinkClick('YouTube', 'https://www.youtube.com/@godsoldiersteamglobal')">
-        <div class="flex items-center justify-center w-8 h-8 text-white text-xl">
+        </a>
+        <a href="https://www.youtube.com/@godsoldiersteamglobal" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="YouTube">
           <i class="fa-brands fa-youtube"></i>
-        </div>
-        <span class="font-serifTitle font-bold text-white text-base tracking-wide flex-grow text-center px-4">
-          YouTube
-        </span>
-        <button onclick="event.stopPropagation(); openShareModal('YouTube', 'https://www.youtube.com/@godsoldiersteamglobal')" aria-label="More options" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors rounded-full hover:bg-zinc-800/60">
-          <i class="fa-solid fa-ellipsis-vertical text-sm"></i>
-        </button>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61562255637495&rdid=jKAPKTtEGyeLDfoW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D7bAhkGjG#" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://t.me/Discipleship_School" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="X Twitter">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
       </div>
 
+      <!-- Footer Links -->
+      <footer class="text-xs text-gray-400 space-x-1 leading-relaxed max-w-md mt-auto">
+        <button type="button" onclick="showToast('Cookie Preferences selected')" class="hover:underline focus:outline-none">Cookie Preferences</button> •
+        <button type="button" onclick="showToast('Report modal opened')" class="hover:underline focus:outline-none">Report</button> •
+        <button type="button" onclick="showToast('Privacy Policy')" class="hover:underline focus:outline-none">Privacy</button> •
+        <button type="button" onclick="showToast('About GOD SOLDIERS TEAM GLOBAL')" class="hover:underline focus:outline-none">About this account</button>
+      </footer>
+
     </div>
-
-    <!-- Social Icons Footer Row -->
-    <div class="flex items-center justify-center space-x-6 mb-12">
-      <a href="https://www.instagram.com/god_soldiers_team/" target="_blank" rel="noopener text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.youtube.com/@godsoldiersteamglobal" target="_blank" rel="noopener text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="YouTube">
-        <i class="fa-brands fa-youtube"></i>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61562255637495&rdid=jKAPKTtEGyeLDfoW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D7bAhkGjG#" target="_blank" rel="noopener text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="Facebook">
-        <i class="fa-brands fa-facebook-f"></i>
-      </a>
-      <a href="https://t.me/Discipleship_School" target="_blank" rel="noopener text-gray-300 hover:text-white transition-transform hover:scale-110 text-2xl" aria-label="X Twitter">
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
-    </div>
-
-    <!-- Footer Links -->
-    <footer class="text-xs text-gray-400 space-x-1 leading-relaxed max-w-md">
-      <button onclick="showToast('Cookie Preferences selected')" class="hover:underline focus:outline-none">Cookie Preferences</button> •
-      <button onclick="showToast('Report modal opened')" class="hover:underline focus:outline-none">Report</button> •
-      <button onclick="showToast('Privacy Policy')" class="hover:underline focus:outline-none">Privacy</button> •
-      <button onclick="showToast('About GOD SOLDIERS TEAM GLOBAL')" class="hover:underline focus:outline-none">About this account</button> •
-    </footer>
-
   </main>
 
   <!-- Interactive Share Modal / Drawer -->
   <div id="share-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-zinc-900 border border-zinc-800 text-white w-full max-w-md rounded-t-2xl sm:rounded-2xl p-6 shadow-2xl transform translate-y-10 transition-transform duration-300 relative" id="modal-content">
-      
+
       <!-- Close Button -->
-      <button onclick="closeShareModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-zinc-800 transition-colors">
+      <button type="button" onclick="closeShareModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-zinc-800 transition-colors" aria-label="Close modal">
         <i class="fa-solid fa-xmark text-lg"></i>
       </button>
 
@@ -324,7 +471,7 @@
 
       <div class="space-y-3">
         <!-- Copy Option -->
-        <button onclick="copyModalUrl()" class="w-full flex items-center space-x-4 p-3.5 rounded-xl bg-zinc-800/80 hover:bg-zinc-700/80 transition-colors text-left">
+        <button type="button" onclick="copyModalUrl()" class="w-full flex items-center space-x-4 p-3.5 rounded-xl bg-zinc-800/80 hover:bg-zinc-700/80 transition-colors text-left">
           <div class="w-10 h-10 rounded-full bg-zinc-700 flex items-center justify-center text-white">
             <i class="fa-regular fa-copy"></i>
           </div>
@@ -335,7 +482,7 @@
         </button>
 
         <!-- Native Share / Social Option -->
-        <button onclick="triggerNativeShare()" class="w-full flex items-center space-x-4 p-3.5 rounded-xl bg-zinc-800/80 hover:bg-zinc-700/80 transition-colors text-left">
+        <button type="button" onclick="triggerNativeShare()" class="w-full flex items-center space-x-4 p-3.5 rounded-xl bg-zinc-800/80 hover:bg-zinc-700/80 transition-colors text-left">
           <div class="w-10 h-10 rounded-full bg-zinc-700 flex items-center justify-center text-white">
             <i class="fa-solid fa-share-nodes"></i>
           </div>
@@ -350,15 +497,43 @@
   </div>
 
   <script>
+    // Change your profile logo here: paste an image URL or local filename (e.g., "my-logo.png" or "https://example.com/logo.jpg")
+    const PROFILE_LOGO_URL = "logo.jpeg";
+
+    // Optional: Enter any Google Font name here to change the bio text font (e.g., "Poppins", "Montserrat", "Cinzel")
+    const PROFILE_BIO_FONT = "";
+
     let activeShareUrl = '';
     let activeShareTitle = '';
 
-    // Handle Link Redirection / Simulated Navigation
+    // Apply custom profile logo (falls back to built-in SVG emblem if empty or broken)
+    const logoImgEl = document.getElementById('profile-logo-img');
+    const logoSvgEl = document.getElementById('profile-logo-svg');
+    if (PROFILE_LOGO_URL.trim() !== "") {
+      logoImgEl.src = PROFILE_LOGO_URL.trim();
+      logoImgEl.classList.remove('hidden');
+      logoSvgEl.classList.add('hidden');
+    } else {
+      logoImgEl.classList.add('hidden');
+      logoSvgEl.classList.remove('hidden');
+    }
+
+    // Apply custom bio font if specified
+    if (PROFILE_BIO_FONT.trim() !== "") {
+      const fontName = PROFILE_BIO_FONT.trim();
+      const fontLink = document.createElement('link');
+      fontLink.rel = 'stylesheet';
+      fontLink.href = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(fontName)}:wght@400;500;600;700&display=swap`;
+      document.head.appendChild(fontLink);
+      document.getElementById('profile-bio').style.fontFamily = `"${fontName}", sans-serif`;
+    }
+
+    // Handle Link Redirection
     function handleLinkClick(title, url) {
       showToast(`Opening ${title}...`);
       setTimeout(() => {
-        window.open(url, '_blank');
-      }, 500);
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }, 400);
     }
 
     // Modal Control Logic
@@ -384,27 +559,31 @@
       modalContent.classList.add('translate-y-10');
     }
 
-    // Close modal on backdrop click
+    // Close modal on backdrop click or Escape key
     document.getElementById('share-modal').addEventListener('click', (e) => {
       if (e.target === document.getElementById('share-modal')) {
         closeShareModal();
       }
     });
 
-    // Copy to clipboard helper function using standard document.execCommand fallback
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeShareModal();
+    });
+
+    // Copy to clipboard helper using document.execCommand fallback
     function copyModalUrl() {
       const tempInput = document.createElement('input');
       tempInput.value = activeShareUrl;
       document.body.appendChild(tempInput);
       tempInput.select();
-      
+
       try {
         document.execCommand('copy');
         showToast('Link copied to clipboard!');
       } catch (err) {
         showToast('Failed to copy link');
       }
-      
+
       document.body.removeChild(tempInput);
       closeShareModal();
     }
