@@ -85,8 +85,21 @@
   <main class="w-full max-w-[580px] px-4 pt-12 pb-10 flex flex-col items-center flex-grow text-center">
     
     <!-- Profile Emblem / Logo Header -->
-    <div class="mb-5 relative group cursor-pointer" onclick="openShareModal('GOD SOLDIERS TEAM GLOBAL Profile', window.location.href)">
-      <div class="w-24 h-24 rounded-full bg-slate-900 border-2 border-slate-700/60 p-1 flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-105 overflow-hidden">
+      <!-- Profile Avatar Emblem (Custom Inline SVG Recreating the GOD SOLDIERS TEAM GLOBAL Badge) -->
+      <div class="w-24 h-24 rounded-full overflow-hidden shadow-lg ring-1 ring-white/15 mb-4 shrink-0 bg-[#c9c6b9]">
+        <img
+          id="profile-logo-img"
+          src="logo.jpeg"
+          alt="GOD SOLDIERS TEAM GLOBAL Logo"
+          class="hidden w-full h-full object-cover"
+        />
+        <svg id="profile-logo-svg" viewBox="0 0 200 200" class="w-full h-full" role="img" aria-label="GOD SOLDIERS TEAM GLOBAL Logo">
+            <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8ec5e8" />
+              <stop offset="100%" stop-color="#224c6b" />
+            </linearGradient>
+          </defs>
+
         <!-- SVG Emblem Replica of GOD SOLDIERS TEAM GLOBAL -->
         <svg viewBox="0 0 200 200" class="w-full h-full text-slate-100 fill-current">
           <circle cx="100" cy="100" r="96" fill="#151b24" stroke="#a0aec0" stroke-width="4"/>
